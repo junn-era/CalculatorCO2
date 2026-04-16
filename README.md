@@ -284,7 +284,7 @@ O projeto segue princípios de:
 ## 👨‍💻 Colaborador
 
 **Francisco Júnior**
-
+- LinkedIn: https://www.linkedin.com/in/francisco-de-oliveira-dev/
 - Projeto: GitHub Copilot | DIO | 
 - CarbonCalc | EcoTrip | Simulador de Impacto Ambiental para Viagens
 
