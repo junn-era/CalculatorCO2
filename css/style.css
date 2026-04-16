@@ -1,0 +1,687 @@
+/* ================================================
+   CSS CUSTOM PROPERTIES
+   ================================================ */
+
+:root {
+  /* Eco-friendly Color Palette */
+  --primary: #10b981;
+  --secondary: #059669;
+  --accent: #34d399;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --bg: #f3f4f6;
+  --white: #ffffff;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.5rem;
+  --spacing-3xl: 3rem;
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ================================================
+   BASE STYLES
+   ================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* ================================================
+   UTILITY CLASSES
+   ================================================ */
+
+.hidden {
+  display: none !important;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text);
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+
+.header {
+  background-color: var(--white);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+}
+
+.header__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.header__subtitle {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* ================================================
+   MAIN LAYOUT
+   ================================================ */
+
+.main {
+  padding: var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* ================================================
+   FORM STYLING
+   ================================================ */
+
+.calculator-form {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-2xl);
+}
+
+.calculator-form__group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.calculator-form__group--checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.calculator-form__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.calculator-form__label--checkbox {
+  display: inline;
+  margin-bottom: 0;
+  margin-left: var(--spacing-sm);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.calculator-form__input,
+.calculator-form__checkbox {
+  transition: all 0.3s ease;
+}
+
+.calculator-form__input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.calculator-form__input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.calculator-form__input:readonly {
+  background-color: var(--bg);
+  cursor: not-allowed;
+}
+
+.calculator-form__helper {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: var(--spacing-xs);
+  font-style: italic;
+}
+
+.calculator-form__checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+/* ================================================
+   FIELDSET & LEGEND
+   ================================================ */
+
+.calculator-form__fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.calculator-form__legend {
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--text);
+  font-size: 0.95rem;
+  display: block;
+}
+
+/* ================================================
+   TRANSPORT MODE GRID
+   ================================================ */
+
+.calculator-form__transport-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.calculator-form__transport-item {
+  position: relative;
+}
+
+.calculator-form__radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+}
+
+.calculator-form__transport-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: var(--white);
+  gap: var(--spacing-sm);
+}
+
+.calculator-form__transport-label:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.calculator-form__radio:checked + .calculator-form__transport-label {
+  border-color: var(--primary);
+  border-width: 2px;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.calculator-form__transport-icon {
+  font-size: 3rem;
+  display: block;
+}
+
+.calculator-form__transport-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ================================================
+   BUTTON
+   ================================================ */
+
+.calculator-form__button {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-md);
+}
+
+.calculator-form__button:hover:not(:disabled) {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.calculator-form__button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ================================================
+   RESULTS SECTIONS
+   ================================================ */
+
+.results,
+.comparison,
+.carbon-credits {
+  max-width: 600px;
+  margin: 0 auto var(--spacing-2xl);
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+}
+
+.results__title,
+.comparison__title,
+.carbon-credits__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary);
+}
+
+.results__content,
+.comparison__content,
+.carbon-credits__content {
+  color: var(--text);
+}
+
+/* ================================================
+   RESULTS CARDS
+   ================================================ */
+
+.results__card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(52, 211, 153, 0.05) 100%);
+  border-left: 4px solid var(--primary);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+.results__card:hover {
+  transform: translateX(4px);
+}
+
+.results__card--savings {
+  border-left-color: var(--info);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(96, 165, 250, 0.05) 100%);
+}
+
+.results__card-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.results__card-content {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.results__card-icon {
+  font-size: 2.5rem;
+}
+
+.results__card-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: var(--spacing-xs);
+}
+
+/* ================================================
+   COMPARISON ITEMS
+   ================================================ */
+
+.comparison__item {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.comparison__item:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.comparison__item--selected {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(52, 211, 153, 0.05) 100%);
+}
+
+.comparison__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.comparison__icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.comparison__info {
+  flex: 1;
+}
+
+.comparison__mode-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.comparison__badge {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  margin-top: var(--spacing-xs);
+}
+
+.comparison__stats {
+  margin-bottom: var(--spacing-md);
+}
+
+.comparison__emission {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.comparison__percent {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: var(--spacing-xs) 0 0 0;
+}
+
+.comparison__progress-container {
+  background-color: #e5e7eb;
+  border-radius: 2rem;
+  height: 8px;
+  overflow: hidden;
+}
+
+.comparison__progress-bar {
+  height: 100%;
+  border-radius: 2rem;
+  transition: width 0.3s ease;
+  min-width: 2px;
+}
+
+.comparison__tip {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.1) 100%);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.comparison__tip-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.comparison__tip-text {
+  font-size: 0.85rem;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ================================================
+   CARBON CREDITS
+   ================================================ */
+
+.carbon-credits__card {
+  background: linear-gradient(135deg, var(--bg) 0%, #f0fdf4 100%);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 2px solid #d1fae5;
+  transition: transform 0.3s ease;
+}
+
+.carbon-credits__card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.carbon-credits__card-header {
+  border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.carbon-credits__card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.carbon-credits__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.carbon-credits__credits-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+
+.carbon-credits__price-average {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+
+.carbon-credits__price-range {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.carbon-credits__helper-text,
+.carbon-credits__info-text {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.carbon-credits__info-box {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(96, 165, 250, 0.05) 100%);
+  border-left: 4px solid var(--info);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.carbon-credits__info-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.carbon-credits__info-content {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.carbon-credits__action {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.carbon-credits__button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carbon-credits__button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
+.footer {
+  background-color: var(--white);
+  border-top: 2px solid #e5e7eb;
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+  margin-top: var(--spacing-3xl);
+}
+
+.footer__text {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* ================================================
+   SPINNER ANIMATION
+   ================================================ */
+
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================================
+   RESPONSIVE DESIGN
+   ================================================ */
+
+@media (max-width: 767px) {
+  .header__title {
+    font-size: 1.5rem;
+  }
+
+  .calculator-form {
+    padding: var(--spacing-lg);
+  }
+
+  .calculator-form__transport-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calculator-form__transport-label {
+    padding: var(--spacing-md);
+  }
+
+  .calculator-form__transport-icon {
+    font-size: 2rem;
+  }
+
+  .results,
+  .comparison,
+  .carbon-credits {
+    padding: var(--spacing-lg);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .calculator-form__transport-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .header {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+}
